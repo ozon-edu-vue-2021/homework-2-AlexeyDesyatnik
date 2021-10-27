@@ -1,0 +1,6 @@
+{
+  "type": "link",
+  "name": "sc-components",
+  "target": "../../packages/sc-components",
+  "contents": []
+}
