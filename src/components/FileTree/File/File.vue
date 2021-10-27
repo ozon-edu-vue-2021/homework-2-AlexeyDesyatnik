@@ -1,12 +1,12 @@
 <template>
-  <p>{{ contents.name }}</p>
+  <p>FILE: {{ item.name }}</p>
 </template>
 
 <script>
 export default {
-  name: "Directory",
+  name: "File",
   props: {
-    contents: Object,
+    item: Object,
   },
 };
 </script>

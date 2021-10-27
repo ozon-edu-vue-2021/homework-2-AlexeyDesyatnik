@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <directory :contents="files"/>
+    <FileTree :item="files"/>
   </div>
 </template>
 
 <script>
-import Directory from './components/Directory/Directory.vue'
+import FileTree from './components/FileTree/FileTree.vue'
 import files from '../public/static/node_modules.json';
 
 export default {
@@ -14,7 +14,7 @@ export default {
     files,
   }),
   components: {
-    Directory
+    FileTree,
   }
 }
 </script>
