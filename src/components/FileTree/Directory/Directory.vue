@@ -1,6 +1,10 @@
 <template>
   <div>
-    <p v-on:click="toggleExpanded" :class="dirClasses">{{ item.name }}</p>
+    <p v-on:click="toggleExpanded" :class="dirClasses">
+      {{ item.name }}
+      <span v-if="expanded">[-]</span>
+      <span v-else>[+]</span>
+    </p>
     <ul v-if="expanded">
       <li v-for="it in item.contents" :key="it.name">
         <Directory v-if="it.type === 'directory'" :item="it" />
