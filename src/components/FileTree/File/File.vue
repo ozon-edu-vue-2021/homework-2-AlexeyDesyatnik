@@ -16,7 +16,11 @@ export default {
   }),
   methods: {
     selectFile() {
-      this.$root.$emit('fileSelected', this.path);
+      if (this.isSelected) {
+        this.$root.$emit('fileSelected', null);
+      } else {
+        this.$root.$emit('fileSelected', this.path);
+      }
     },
     onFileSelected(selectedFilePath) {
       this.selectedFilePath = selectedFilePath;
