@@ -1,5 +1,7 @@
 <template>
-  <p v-on:click="toggleSelected" :class="fileClasses">{{ item.name }}</p>
+  <p v-on:click="toggleSelected" :class="fileClasses">
+    {{ item.name }}
+  </p>
 </template>
 
 <script>
@@ -7,6 +9,7 @@ export default {
   name: "File",
   props: {
     item: Object,
+    fullPath: String,
   },
   data: () => ({
     selected: false,
@@ -25,6 +28,9 @@ export default {
         },
       ];
     },
+    path() {
+      return this.fullPath + this.item.name;
+    }
   },
 };
 </script>

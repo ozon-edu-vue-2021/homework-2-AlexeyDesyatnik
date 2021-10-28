@@ -7,8 +7,16 @@
     </p>
     <ul v-if="expanded">
       <li v-for="it in item.contents" :key="it.name">
-        <Directory v-if="it.type === 'directory'" :item="it" />
-        <File v-else :item="it" />
+        <Directory 
+          v-if="it.type === 'directory'"
+          :item="it"
+          :fullPath="path"
+        />
+        <File 
+          v-else
+          :item="it"
+          :fullPath="path"
+        />
       </li>
     </ul>
   </div>
@@ -20,6 +28,7 @@ export default {
   name: "Directory",
   props: {
     item: Object,
+    fullPath: String,
   },
   components: {
     File,
@@ -35,6 +44,9 @@ export default {
   computed: {
     dirClasses() {
       return ['dir'];
+    },
+    path() {
+      return this.fullPath + this.item.name + '/';
     }
   }
 };

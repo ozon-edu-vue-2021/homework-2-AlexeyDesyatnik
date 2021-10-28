@@ -1,6 +1,14 @@
 <template>
-  <Directory v-if="item.type === 'directory'" :item="item" />
-  <File v-else :item="item" />
+  <Directory 
+    v-if="item.type === 'directory'"
+    :item="item"
+    fullPath="/"
+  />
+  <File 
+    v-else
+    :item="item"
+    fullPath="/"
+  />
 </template>
 
 <script>
