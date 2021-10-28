@@ -1,16 +1,18 @@
 <template>
   <div>
-    <div>Selected file: {{ selectedFilePath }}</div>
-    <Directory 
-      v-if="item.type === 'directory'"
-      :item="item"
-      fullPath="/"
-    />
-    <File 
-      v-else
-      :item="item"
-      fullPath="/"
-    />
+    <div class="selected-file-panel">Selected file: {{ selectedFilePath }}</div>
+    <div class="file-tree">
+      <Directory 
+        v-if="item.type === 'directory'"
+        :item="item"
+        fullPath="/"
+      />
+      <File 
+        v-else
+        :item="item"
+        fullPath="/"
+      />
+    </div>
   </div>
 </template>
 
@@ -45,5 +47,13 @@ export default {
 </script>
 
 <style scoped>
-
+.selected-file-panel {
+  border-bottom: 1px solid black;
+  position: sticky;
+  top: 0px;
+  background: white;
+}
+.file-tree {
+  margin-top: 30px;
+}
 </style>
