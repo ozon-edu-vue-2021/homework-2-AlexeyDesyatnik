@@ -1,5 +1,5 @@
 <template>
-  <p v-on:click="toggleSelected" :class="fileClasses">
+  <p v-on:click="selectFile" :class="fileClasses">
     {{ item.name }}
   </p>
 </template>
@@ -9,29 +9,41 @@ export default {
   name: "File",
   props: {
     item: Object,
-    fullPath: String,
+    fullPath: String
   },
   data: () => ({
-    selected: false,
+    selectedFilePath: null,
   }),
   methods: {
-    toggleSelected() {
-      this.selected = !this.selected;
+    selectFile() {
+      this.$root.$emit('fileSelected', this.path);
     },
+    onFileSelected(selectedFilePath) {
+      this.selectedFilePath = selectedFilePath;
+    }
   },
   computed: {
+    path() {
+      return this.fullPath + this.item.name;
+    },
+    isSelected() {
+      return this.selectedFilePath === this.path;
+    },
     fileClasses() {
       return [
         'file', {
           'file_isLink': this.item.type === 'link',
-          'file_selected': this.selected,
+          'file_selected': this.isSelected,
         },
       ];
     },
-    path() {
-      return this.fullPath + this.item.name;
-    }
   },
+  created() {
+    this.$root.$on('fileSelected', this.onFileSelected);
+  },
+  beforeDestroy() {
+    this.$root.$off('fileSelected', this.onFileSelected);
+  }
 };
 </script>
 

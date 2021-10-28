@@ -28,7 +28,7 @@ export default {
   name: "Directory",
   props: {
     item: Object,
-    fullPath: String,
+    fullPath: String
   },
   components: {
     File,
