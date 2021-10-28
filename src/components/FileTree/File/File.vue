@@ -34,6 +34,10 @@ export default {
   content: 'FILE: ';
 }
 
+.file:hover {
+  cursor: pointer;
+}
+
 .file_isLink::before {
   content: 'LINK: ';
 }

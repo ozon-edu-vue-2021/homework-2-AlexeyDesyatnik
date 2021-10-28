@@ -44,4 +44,7 @@ export default {
 .dir::before {
   content: "DIR: "
 }
+.dir:hover {
+  cursor: pointer;
+}
 </style>
