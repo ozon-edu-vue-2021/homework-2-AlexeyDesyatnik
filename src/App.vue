@@ -1,28 +1,24 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <FileTree :item="files"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import FileTree from './components/FileTree/FileTree.vue'
+import files from '../public/static/node_modules.json';
+// import files from '../public/static/small_tree.json';
 
 export default {
   name: 'App',
+  data: () => ({
+    files,
+  }),
   components: {
-    HelloWorld
+    FileTree,
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
